@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="gold">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Syazri The Great — Timeless Quotes & Wisdom</title>
+  <meta name="description" content="Immerse in the timeless wisdom, ambition, and philosophy of Syazri The Great. Explore interactive quote showcases, text-to-speech narration, oracle guidance, and aesthetic card downloads.">
+  <meta name="keywords" content="Syazri The Great, Syazri quotes, philosophy, wisdom, ambition, mindset, greatness, inspirational quotes">
+  
+  <!-- Open Graph / Social Media -->
+  <meta property="og:title" content="Syazri The Great — Timeless Quotes & Wisdom">
+  <meta property="og:description" content="Discover the legendary quotes of Syazri The Great. Master your ambition, destiny, and mindset.">
+  <meta property="og:image" content="assets/syazri_photo.jpg?v=4">
+  <meta property="og:type" content="website">
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css?v=4">
+  <link rel="icon" type="image/jpeg" href="assets/syazri_photo.jpg?v=4">
+</head>
+<body class="aura-gold">
+  <!-- Interactive Particle Background Canvas -->
+  <canvas id="starsCanvas" class="background-canvas" aria-hidden="true"></canvas>
+
+  <!-- Ambient Glowing Orbs -->
+  <div class="ambient-glow glow-1" aria-hidden="true"></div>
+  <div class="ambient-glow glow-2" aria-hidden="true"></div>
+  <div class="ambient-glow glow-3" aria-hidden="true"></div>
+
+  <!-- Header / Navigation -->
+  <header class="site-header" id="mainHeader">
+    <div class="nav-container">
+      <a href="#hero" class="brand-link">
+        <div class="crest-wrapper">
+          <img src="assets/syazri_photo.jpg?v=4" alt="Syazri The Great" class="crest-img">
+          <div class="crest-ring"></div>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">SYAZRI</span>
+          <span class="brand-subtitle">THE GREAT</span>
+        </div>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#hero" class="nav-item active"><span class="nav-icon">✦</span> Sanctuary</a>
+        <a href="#quotesSection" class="nav-item"><span class="nav-icon">📜</span> Codex</a>
+        <a href="#oracleSection" class="nav-item"><span class="nav-icon">🔮</span> Oracle</a>
+        <a href="#aboutSyazri" class="nav-item"><span class="nav-icon">👤</span> Architect</a>
+        <button id="favoritesBtn" class="nav-item btn-ghost-nav" aria-label="View Favorited Quotes">
+          <span class="nav-icon">⭐</span> Saved <span id="favCountBadge" class="badge-count">0</span>
+        </button>
+      </nav>
+
+      <div class="nav-actions">
+        <!-- Ambient Sound Generator Toggle -->
+        <button id="soundToggle" class="icon-btn" title="Toggle Cosmic Ambience" aria-label="Toggle Cosmic Ambience">
+          <svg class="audio-icon playing-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+            <path class="sound-wave wave-1" d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+            <path class="sound-wave wave-2" d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+          </svg>
+          <span class="sound-pulse"></span>
+        </button>
+
+        <!-- Aura Theme Switcher -->
+        <div class="theme-selector-dropdown">
+          <button id="themePickerBtn" class="icon-btn" title="Change Theme Aura" aria-label="Change Theme Aura">
+            <span class="theme-indicator"></span>
+            <span class="theme-label-text">Aura</span>
+          </button>
+          <div class="theme-menu" id="themeMenu">
+            <button class="theme-opt active" data-aura="gold"><span class="color-dot dot-gold"></span> Celestial Gold</button>
+            <button class="theme-opt" data-aura="cyan"><span class="color-dot dot-cyan"></span> Cyber Cyan</button>
+            <button class="theme-opt" data-aura="purple"><span class="color-dot dot-purple"></span> Royal Amethyst</button>
+            <button class="theme-opt" data-aura="crimson"><span class="color-dot dot-crimson"></span> Crimson Ember</button>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Hamburger -->
+        <button id="mobileMenuToggle" class="mobile-hamburger" aria-label="Toggle Navigation Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section with 3D Tilt Quote Showcase -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-layout">
+        <div class="hero-intro">
+          <div class="badge-pill">
+            <span class="pulse-dot"></span>
+            <span>VOICE OF WISDOM</span>
+          </div>
+          <h1 class="hero-title">
+            Wisdom That Commands <span class="gradient-text">Destiny</span>
+          </h1>
+          <p class="hero-desc">
+            Explore the sharp intellect, legendary humor, and visionary reflections of <strong>Syazri The Great</strong>. Elevate your mind, forge your focus, and conquer your craft.
+          </p>
+
+          <div class="hero-stats">
+            <div class="stat-card">
+              <span class="stat-num" id="totalQuotesCounter">10</span>
+              <span class="stat-label">Maxims</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">5</span>
+              <span class="stat-label">Categories</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-num">∞</span>
+              <span class="stat-label">Inspirations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Featured Hero Quote Card with 3D Mouse Parallax -->
+        <div class="hero-card-container">
+          <div class="hero-quote-card" id="featuredQuoteCard">
+            <div class="card-glow-overlay"></div>
+            <div class="card-inner">
+              <div class="card-top-bar">
+                <span class="quote-tag" id="featuredCategory">RIGHTEOUS PATH</span>
+                <div class="card-quote-mark" aria-hidden="true">“</div>
+              </div>
+
+              <blockquote class="featured-quote-text" id="featuredQuoteText">
+                "Greatness is not an accident of fate, it is an engineered habit."
+              </blockquote>
+
+              <div class="quote-author-row">
+                <div class="author-info">
+                  <div class="author-avatar-sm">
+                    <img src="assets/syazri_photo.jpg?v=4" alt="Syazri The Great">
+                  </div>
+                  <div>
+                    <h3 class="author-name">Syazri The Great</h3>
+                    <p class="author-subtitle" id="featuredContext">The Core Foundational Doctrine</p>
+                  </div>
+                </div>
+
+                <div class="quote-action-group">
+                  <button class="action-btn" id="featuredTtsBtn" title="Listen with Voice Narration" aria-label="Listen Quote">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+                  </button>
+                  <button class="action-btn" id="featuredCopyBtn" title="Copy Quote Text" aria-label="Copy Quote">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                  </button>
+                  <button class="action-btn" id="featuredFavBtn" title="Save to Favorites" aria-label="Favorite Quote">
+                    <svg class="heart-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                  </button>
+                  <button class="action-btn" id="featuredExportBtn" title="Export as Social Card" aria-label="Export Card">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card Bottom Bar with Instant Randomizer -->
+            <div class="card-footer-controls">
+              <button id="summonQuoteBtn" class="btn-primary-aura">
+                <span class="btn-icon">⚡</span>
+                <span class="btn-text">Summon Wisdom</span>
+              </button>
+              <button id="shareFeaturedBtn" class="btn-secondary-glass">
+                <span class="btn-icon">🔗</span> Share
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Oracle of Syazri Interactive Section -->
+    <section class="oracle-section" id="oracleSection">
+      <div class="container">
+        <div class="section-heading text-center">
+          <div class="badge-pill mx-auto">
+            <span>MYSTIC ORACLE</span>
+          </div>
+          <h2 class="section-title">Consult the Oracle of <span class="gradient-text">Syazri</span></h2>
+          <p class="section-subtitle">
+            Speak your query or dilemma. The Oracle will unveil the exact maxim to illuminate your path.
+          </p>
+        </div>
+
+        <div class="oracle-console-card">
+          <div class="oracle-form">
+            <div class="oracle-input-wrapper">
+              <input type="text" id="oracleQueryInput" placeholder="e.g. Where is my ultimate destination in life?" autocomplete="off">
+              <button id="askOracleBtn" class="btn-oracle-submit">
+                <span>Reveal</span> ✦
+              </button>
+            </div>
+
+            <!-- Preset prompts for quick fun -->
+            <div class="oracle-pills">
+              <span class="pills-label">Sample Inquiries:</span>
+              <button class="oracle-pill" data-prompt="What is my ultimate destination in life?">Destination & Purpose</button>
+              <button class="oracle-pill" data-prompt="How do I engineer greatness every single day?">Greatness & Habit</button>
+              <button class="oracle-pill" data-prompt="What do I say when negotiations have ended?">Sovereign Dismissal</button>
+              <button class="oracle-pill" data-prompt="What beverage shall we drink?">Refreshment & Tea</button>
+              <button class="oracle-pill" data-prompt="Who is the eternal queen of music?">Devotion to IU</button>
+              <button class="oracle-pill" data-prompt="How can I contact Syazri The Great directly?">Direct Hotline</button>
+            </div>
+          </div>
+
+          <!-- Oracle Answer Area -->
+          <div class="oracle-response-box" id="oracleResponseBox">
+            <div class="oracle-idle-state" id="oracleIdleState">
+              <div class="oracle-sphere">
+                <div class="sphere-inner"></div>
+              </div>
+              <p>Type an inquiry or pick a doctrine above to awaken the Oracle.</p>
+            </div>
+
+            <div class="oracle-active-state hidden" id="oracleActiveState">
+              <div class="oracle-result-card">
+                <div class="oracle-oracle-header">
+                  <span class="oracle-badge">ORACLE DECREE</span>
+                  <span class="oracle-timestamp" id="oracleTimestamp">Just now</span>
+                </div>
+                <blockquote class="oracle-quote-content" id="oracleQuoteText"></blockquote>
+                <div class="oracle-insight" id="oracleInsightText"></div>
+                <div class="oracle-actions">
+                  <button class="action-btn" id="oracleSpeakBtn" title="Listen to Oracle"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 5L6 9H2v6h4l5 4V5z"></path><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> Narration</button>
+                  <button class="action-btn" id="oracleCopyBtn" title="Copy Wisdom"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Codex / All Quotes Section -->
+    <section class="codex-section" id="quotesSection">
+      <div class="container">
+        <div class="section-heading">
+          <div class="badge-pill">
+            <span>THE COMPLETE CODEX</span>
+          </div>
+          <h2 class="section-title">Archived Epigrams & <span class="gradient-text">Maxims</span></h2>
+          <p class="section-subtitle">
+            Explore the categorized teachings of Syazri The Great. Filter by doctrine, search key terms, or save your favorites.
+          </p>
+        </div>
+
+        <!-- Filter & Search Controls Bar -->
+        <div class="codex-controls-bar">
+          <div class="search-input-box">
+            <svg class="search-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="11" cy="11" r="8"></circle>
+              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+            </svg>
+            <input type="text" id="quoteSearchInput" placeholder="Search quotes, doctrines, or keywords..." aria-label="Search quotes">
+            <button id="clearSearchBtn" class="clear-btn hidden" aria-label="Clear Search">✕</button>
+          </div>
+
+          <div class="sort-selector">
+            <label for="sortQuotesSelect" class="sort-label">Order:</label>
+            <select id="sortQuotesSelect" class="styled-select">
+              <option value="featured">Sovereign's Order</option>
+              <option value="random">Shuffle / Chaos</option>
+              <option value="popular">Most Revered</option>
+              <option value="short">Concise</option>
+              <option value="long">Profound & Long</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="category-tabs-wrapper">
+          <div class="category-tabs" id="categoryTabs" role="tablist">
+            <button class="cat-tab active" data-category="all" role="tab" aria-selected="true">
+              All Maxims <span class="cat-count" id="countAll">10</span>
+            </button>
+            <button class="cat-tab" data-category="Righteous Path" role="tab" aria-selected="false">
+              Righteous Path <span class="cat-count" id="countRighteous">2</span>
+            </button>
+            <button class="cat-tab" data-category="Sovereign Decrees" role="tab" aria-selected="false">
+              Sovereign Decrees <span class="cat-count" id="countDecrees">2</span>
+            </button>
+            <button class="cat-tab" data-category="Aesthetic & Taste" role="tab" aria-selected="false">
+              Aesthetic & Taste <span class="cat-count" id="countTaste">2</span>
+            </button>
+            <button class="cat-tab" data-category="Cultural Lore" role="tab" aria-selected="false">
+              Cultural Lore <span class="cat-count" id="countCultural">3</span>
+            </button>
+            <button class="cat-tab" data-category="Sacred Hotline" role="tab" aria-selected="false">
+              Sacred Hotline <span class="cat-count" id="countHotline">1</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Quotes Grid Container -->
+        <div class="quotes-grid" id="quotesGrid" role="region" aria-live="polite">
+          <!-- Dynamically populated via JavaScript -->
+        </div>
+
+        <!-- No Results Fallback -->
+        <div class="no-results hidden" id="noResultsBox">
+          <div class="no-results-icon">📜</div>
+          <h3>No maxims match your search</h3>
+          <p>Try searching for words like "code", "destiny", "tide", "mindset", or reset filters.</p>
+          <button id="resetFiltersBtn" class="btn-secondary-glass mt-3">Reset All Filters</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Mindset Builder Banner -->
+    <section class="banner-section">
+      <div class="container">
+        <div class="mindset-banner">
+          <div class="banner-decor" aria-hidden="true">✦ ✦ ✦</div>
+          <h2 class="banner-title">“Greatness is not an accident of fate; it is an engineered habit.”</h2>
+          <p class="banner-author">— Syazri The Great</p>
+          <button id="bannerShuffleBtn" class="btn-primary-aura">
+            <span>Draw Another Proverb</span> ⚡
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Master Profile / About Section -->
+    <section class="profile-section" id="aboutSyazri">
+      <div class="container">
+        <div class="profile-card">
+          <div class="profile-avatar-container">
+            <div class="profile-avatar-wrapper">
+              <img src="assets/izzat_syazri.jpg?v=5" alt="Izzat Syazri" class="profile-avatar-img">
+              <div class="profile-avatar-glow"></div>
+            </div>
+            <div class="profile-status-badge">
+              <span class="status-live-dot"></span>
+              <span>THE SOVEREIGN</span>
+            </div>
+          </div>
+
+          <div class="profile-info-container">
+            <div class="badge-pill">
+              <span>ARCHITECT OF THE CODEX</span>
+            </div>
+            <h2 class="profile-name">Izzat Syazri <span class="gradient-text">(The Great)</span></h2>
+            <p class="profile-bio">
+              Software Engineer, philosopher of daily habits, and the supreme voice behind the sacred maxims.
+            </p>
+
+            <div class="profile-details-grid">
+              <div class="profile-item">
+                <span class="item-icon">🎓</span>
+                <div>
+                  <span class="item-label">Graduate</span>
+                  <span class="item-value">Computer Science (Hons. Software Engineering)</span>
+                </div>
+              </div>
+
+              <div class="profile-item">
+                <span class="item-icon">🏛️</span>
+                <div>
+                  <span class="item-label">University</span>
+                  <span class="item-value">Universiti Tenaga Nasional (UNITEN)</span>
+                </div>
+              </div>
+
+              <div class="profile-item">
+                <span class="item-icon">📸</span>
+                <div>
+                  <span class="item-label">Instagram</span>
+                  <a href="https://instagram.com/i.syazri" target="_blank" rel="noopener" class="item-value link-accent">@i.syazri ↗</a>
+                </div>
+              </div>
+
+              <div class="profile-item">
+                <span class="item-icon">✉️</span>
+                <div>
+                  <span class="item-label">Email</span>
+                  <a href="mailto:izzatsyazri@gmail.com" class="item-value link-accent">izzatsyazri@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="profile-item item-highlight">
+                <span class="item-icon">👑</span>
+                <div>
+                  <span class="item-label">Ultimate Dream</span>
+                  <span class="item-value highlight-text">House Husband</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <div class="crest-wrapper-sm">
+          <img src="assets/izzat_syazri.jpg?v=5" alt="Izzat Syazri">
+        </div>
+        <div>
+          <span class="footer-title">Izzat Syazri — The Great</span>
+          <p class="footer-tagline">Universiti Tenaga Nasional • Software Engineer • House Husband Aspirant</p>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">Sanctuary</a>
+        <a href="#quotesSection">Codex</a>
+        <a href="#oracleSection">Oracle</a>
+        <a href="#aboutSyazri">About Izzat</a>
+        <button id="footerFavBtn" class="footer-text-btn">My Favorites</button>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 The Annals of Syazri The Great. Crafted for seekers of mastery.</p>
+        <a href="#hero" class="back-to-top" title="Back to Top" aria-label="Back to top">
+          <span>▲</span>
+        </a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal: Export Quote As Image -->
+  <div class="modal-backdrop hidden" id="exportModal" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="exportModalTitle" class="modal-title">Export Wisdom Card</h3>
+        <button id="closeExportModalBtn" class="modal-close-btn" aria-label="Close modal">✕</button>
+      </div>
+
+      <div class="modal-body">
+        <div class="canvas-preview-container">
+          <canvas id="exportCardCanvas" width="1080" height="1080"></canvas>
+        </div>
+
+        <div class="export-options">
+          <div class="option-group">
+            <label>Card Theme:</label>
+            <div class="style-selector">
+              <button class="canvas-theme-btn active" data-style="cosmic-gold">Cosmic Gold</button>
+              <button class="canvas-theme-btn" data-style="cyber-cyan">Cyber Cyan</button>
+              <button class="canvas-theme-btn" data-style="royal-amethyst">Royal Violet</button>
+              <button class="canvas-theme-btn" data-style="obsidian-dark">Obsidian Minimal</button>
+            </div>
+          </div>
+
+          <div class="option-group">
+            <label>Format:</label>
+            <div class="style-selector">
+              <button class="canvas-ratio-btn active" data-ratio="square">1:1 Square</button>
+              <button class="canvas-ratio-btn" data-ratio="story">9:16 Story</button>
+              <button class="canvas-ratio-btn" data-ratio="banner">16:9 Banner</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <button id="downloadCanvasBtn" class="btn-primary-aura w-full">
+          <span class="btn-icon">⬇</span> Download High-Res PNG
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal / Drawer: Favorites Vault -->
+  <div class="drawer-backdrop hidden" id="favDrawer" role="dialog" aria-modal="true" aria-labelledby="favDrawerTitle">
+    <div class="drawer-panel">
+      <div class="drawer-header">
+        <div class="d-flex align-center gap-2">
+          <span class="nav-icon">⭐</span>
+          <h3 id="favDrawerTitle" class="drawer-title">Bookmarked Wisdom</h3>
+        </div>
+        <button id="closeFavDrawerBtn" class="modal-close-btn" aria-label="Close saved favorites">✕</button>
+      </div>
+
+      <div class="drawer-body" id="favQuotesList">
+        <!-- Dynamically populated -->
+      </div>
+
+      <div class="drawer-footer">
+        <button id="exportFavsJsonBtn" class="btn-secondary-glass">Export JSON</button>
+        <button id="exportFavsMdBtn" class="btn-secondary-glass">Export Markdown</button>
+        <button id="clearAllFavsBtn" class="btn-danger-ghost">Clear All</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toastContainer" class="toast-container" aria-live="polite"></div>
+
+  <script src="app.js?v=4"></script>
+</body>
+</html>
