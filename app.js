@@ -251,7 +251,7 @@
       try {
         if (typeof osc.stop === 'function') osc.stop();
         if (typeof osc.disconnect === 'function') osc.disconnect();
-      } catch (e) {}
+      } catch (e) { }
     });
     ambientOscillators = [];
   }
@@ -411,7 +411,7 @@
     // Filter by Search Query
     if (searchQuery.trim() !== '') {
       const qLower = searchQuery.toLowerCase().trim();
-      list = list.filter(q => 
+      list = list.filter(q =>
         q.text.toLowerCase().includes(qLower) ||
         q.category.toLowerCase().includes(qLower) ||
         q.context.toLowerCase().includes(qLower) ||
@@ -625,8 +625,8 @@
 
     // 2. Draw Ambient Glowing Highlights
     const glowColor = exportTheme === 'cosmic-gold' ? 'rgba(245, 158, 11, 0.18)' :
-                     exportTheme === 'cyber-cyan' ? 'rgba(6, 182, 212, 0.18)' :
-                     exportTheme === 'royal-amethyst' ? 'rgba(168, 85, 247, 0.18)' : 'rgba(255, 255, 255, 0.08)';
+      exportTheme === 'cyber-cyan' ? 'rgba(6, 182, 212, 0.18)' :
+        exportTheme === 'royal-amethyst' ? 'rgba(168, 85, 247, 0.18)' : 'rgba(255, 255, 255, 0.08)';
 
     const radGrad = ctx.createRadialGradient(width / 2, height / 2, 50, width / 2, height / 2, width * 0.6);
     radGrad.addColorStop(0, glowColor);
@@ -637,8 +637,8 @@
     // 3. Draw Outer Card Decorative Frame
     const margin = width * 0.06;
     ctx.strokeStyle = exportTheme === 'cosmic-gold' ? 'rgba(245, 158, 11, 0.4)' :
-                      exportTheme === 'cyber-cyan' ? 'rgba(6, 182, 212, 0.4)' :
-                      exportTheme === 'royal-amethyst' ? 'rgba(168, 85, 247, 0.4)' : 'rgba(255, 255, 255, 0.2)';
+      exportTheme === 'cyber-cyan' ? 'rgba(6, 182, 212, 0.4)' :
+        exportTheme === 'royal-amethyst' ? 'rgba(168, 85, 247, 0.4)' : 'rgba(255, 255, 255, 0.2)';
     ctx.lineWidth = 3;
     ctx.strokeRect(margin, margin, width - margin * 2, height - margin * 2);
 
@@ -646,8 +646,8 @@
     const cornerSize = 24;
     ctx.lineWidth = 6;
     ctx.strokeStyle = exportTheme === 'cosmic-gold' ? '#f59e0b' :
-                      exportTheme === 'cyber-cyan' ? '#06b6d4' :
-                      exportTheme === 'royal-amethyst' ? '#a855f7' : '#ffffff';
+      exportTheme === 'cyber-cyan' ? '#06b6d4' :
+        exportTheme === 'royal-amethyst' ? '#a855f7' : '#ffffff';
 
     // Top-Left
     ctx.strokeRect(margin - 3, margin - 3, cornerSize, cornerSize);
@@ -681,8 +681,8 @@
 
     // 5. Draw Category Badge
     ctx.fillStyle = exportTheme === 'cosmic-gold' ? '#f59e0b' :
-                    exportTheme === 'cyber-cyan' ? '#06b6d4' :
-                    exportTheme === 'royal-amethyst' ? '#a855f7' : '#ffffff';
+      exportTheme === 'cyber-cyan' ? '#06b6d4' :
+        exportTheme === 'royal-amethyst' ? '#a855f7' : '#ffffff';
     ctx.font = `700 ${Math.round(width * 0.024)}px "Space Grotesk", sans-serif`;
     ctx.textAlign = 'center';
     ctx.fillText(activeExportQuote.category.toUpperCase(), width / 2, crestY + crestSize + width * 0.06);
@@ -706,8 +706,8 @@
     // 7. Draw Author Signature & Title
     const authorY = height - margin - width * 0.12;
     ctx.fillStyle = exportTheme === 'cosmic-gold' ? '#fef08a' :
-                    exportTheme === 'cyber-cyan' ? '#a5f3fc' :
-                    exportTheme === 'royal-amethyst' ? '#fae8ff' : '#ffffff';
+      exportTheme === 'cyber-cyan' ? '#a5f3fc' :
+        exportTheme === 'royal-amethyst' ? '#fae8ff' : '#ffffff';
     ctx.font = `800 ${Math.round(width * 0.034)}px "Cinzel", serif`;
     ctx.fillText("SYAZRI THE GREAT", width / 2, authorY);
 
@@ -880,7 +880,7 @@
         title: 'Syazri The Great Wisdom',
         text: shareText,
         url: window.location.href
-      }).catch(() => {});
+      }).catch(() => { });
     } else {
       copyTextToClipboard(shareText);
     }
