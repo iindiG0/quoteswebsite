@@ -67,10 +67,10 @@
     },
     {
       id: 7,
-      text: "0138113639",
+      text: "013******9",
       category: "Sacred Hotline",
       context: "The direct line to communicate with Syazri The Great",
-      keywords: ["0138113639", "phone", "number", "contact", "hotline", "call", "whatsapp", "reach"],
+      keywords: ["013******9", "phone", "number", "contact", "hotline", "call", "whatsapp", "reach"],
       reverence: 100,
       featured: true
     },
@@ -99,6 +99,24 @@
       context: "The classic stoic sigh of an unbothered sovereign",
       keywords: ["yare", "anime", "daze", "stoic", "sigh", "unbothered", "chill", "calm"],
       reverence: 94,
+      featured: true
+    },
+    {
+      id: 11,
+      text: "3.14159265359",
+      category: "Cultural Lore",
+      context: "The value of pi (π)",
+      keywords: ["3.14159265359", "pi", "value", "math", "circle", "constant", "geometry", "calculation", "formula", "precision"],
+      reverence: 96,
+      featured: true
+    },
+    {
+      id: 12,
+      text: "saya tak tahu, saya intern je",
+      category: "Sovereign Decrees",
+      context: "The foundational doctrine of corporate self defence",
+      keywords: ["saya", "tak", "tahu", "intern", "je", "self", "defence", "defense", "work", "office", "survival", "innocent"],
+      reverence: 98,
       featured: true
     }
   ];
