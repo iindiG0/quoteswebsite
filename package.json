@@ -1,5 +1,5 @@
 {
-  "name": "my-static-site",
+  "name": "quoteswebsite",
   "version": "1.0.0",
   "scripts": {
     "start": "npx serve -s . -l 80"

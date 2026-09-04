@@ -96,7 +96,7 @@
       id: 10,
       text: "yare yare",
       category: "Cultural Lore",
-      context: "The classic stoic sigh of an unbothered sovereign",
+      context: "Ojou sama its time to go to bed",
       keywords: ["yare", "anime", "daze", "stoic", "sigh", "unbothered", "chill", "calm"],
       reverence: 94,
       featured: true
