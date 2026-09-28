@@ -1,0 +1,87 @@
+# Save this file in your repo as: .github/workflows/ci-cd.yml
+# GitHub automatically runs any .yml file inside .github/workflows/
+
+name: CI/CD                      # Name shown in the "Actions" tab
+
+# ---------------------------------------------------------------
+# TRIGGERS: when should this workflow run?
+# ---------------------------------------------------------------
+on:
+  push:
+    branches: [main]             # Every push to main -> check AND deploy
+  pull_request:
+    branches: [main]             # Every PR into main -> check only (no deploy)
+  workflow_dispatch:             # Adds a "Run workflow" button for manual runs
+
+# Permissions the workflow's automatic token gets.
+# Deploying to GitHub Pages needs these three.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# If you push twice quickly, don't run two deploys at once.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  # =============================================================
+  # JOB 1 — CI: check the code
+  # =============================================================
+  check:
+    runs-on: ubuntu-latest       # A fresh Linux VM that GitHub spins up for you
+    steps:
+      # Step 1: download your repo's code onto the VM
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      # Step 2: install Node.js (needed for the checker tools below)
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      # Step 3: lint every HTML file (unclosed tags, missing alt text, etc.)
+      # npx downloads and runs the tool without adding it to your project.
+      - name: Lint HTML
+        run: npx --yes htmlhint "**/*.html"
+
+      # Step 4: make sure every JS file at least parses (catches syntax errors).
+      # If any command exits with an error, the step fails -> the job fails.
+      - name: Check JavaScript syntax
+        run: |
+          find . -name "*.js" -not -path "./node_modules/*" -print0 \
+            | xargs -0 -r -n1 node --check
+
+  # =============================================================
+  # JOB 2 — CD: deploy to GitHub Pages
+  # =============================================================
+  deploy:
+    needs: check                 # Only runs if the "check" job passed
+    # Only deploy for pushes to main — not for pull requests
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}   # Shows the live link in the run summary
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v4
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      # Package the site files. path: . means "the repo root",
+      # so index.html should be at the top level of your repo.
+      # If your site lives in a subfolder (e.g. site/), change this.
+      - name: Upload site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
